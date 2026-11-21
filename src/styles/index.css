@@ -4,3 +4,18 @@
 @import "./tokens.css";
 @import "./components.css";
 @import "./suite-nav.css";
+
+/* Fuenf Namen, die components.css (die Startseite der Homepage) verwendet, die
+   aber nur die Portfolio-Huelle der Homepage definiert (portfolio.css). Die
+   gehoert nicht ins Paket: Sie stellt die Homepage auf ihre eigene Farbwelt
+   um, das Paket bleibt bei den kanonischen Suite-Tokens aus tokens.css.
+   Damit die Regeln hier nicht ins Leere greifen, zeigen die Namen auf
+   vorhandene Suite-Tokens. Keine eigenen Farben; hell und dunkel folgen
+   tokens.css von selbst. */
+:root {
+  --suite-accent-hover: var(--suite-accent-strong);
+  --suite-glas-rand: var(--suite-border);
+  --suite-glas-flaeche: var(--suite-surface);
+  --suite-glas-stark: color-mix(in srgb, var(--suite-canvas) 72%, transparent);
+  --suite-verlauf-violett: var(--suite-accent-strong);
+}
