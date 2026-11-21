@@ -1,0 +1,20 @@
+{
+  "shape": "package",
+  "pkg": ".",
+  "entry": "dist/index.js",
+  "cssEntry": "src/styles/bundled.css",
+  "globalName": "SuiteDS",
+  "overrides": {
+    "ProjectBlock": {
+      "cardMode": "column"
+    },
+    "Symbol": {
+      "cardMode": "column"
+    },
+    "Marke": {
+      "cardMode": "column"
+    }
+  },
+  "readmeHeader": ".design-sync/conventions.md",
+  "projectId": "390e862a-9a5c-47b7-ab04-42ae4b4f89c2"
+}

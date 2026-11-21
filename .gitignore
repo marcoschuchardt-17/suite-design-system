@@ -1,0 +1,20 @@
+node_modules/
+dist/
+ds-bundle/
+.ds-sync/
+.design-sync/.cache/
+
+# Erzeugt von scripts/sync-css.mjs aus dem Homepage-Repo.
+# Aenderungen gehoeren dorthin, nicht hierher.
+src/styles/tokens.css
+src/styles/components.css
+src/styles/suite-nav.css
+src/styles/bundled.css
+fonts/
+
+# Erzeugte Kontaktboegen zum Ansehen - regenerierbar mit scripts/symbol-bogen.mjs
+symbol-bogen.png
+marken-bogen.png
+.DS_Store
+
+marken.png

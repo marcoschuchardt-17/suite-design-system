@@ -1,0 +1,6 @@
+/* Suite-Designsystem (MAR-89). Die drei Dateien sind die echten Stylesheets
+   der Homepage - Tokens, Komponenten, Suite-Leiste. Nur die Font-Pfade sind
+   relativ gemacht, sonst unveraendert. */
+@import "./tokens.css";
+@import "./components.css";
+@import "./suite-nav.css";

@@ -1,0 +1,28 @@
+name: Prüfung
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pruefung:
+    # Oeffentliches Repo: Pull-Requests laufen nur auf GitHub-eigenen Runnern.
+    # Ein eigener Runner wuerde bei einem Pull-Request aus einem Fork fremden
+    # Code auf dem eigenen Server ausfuehren.
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Der volle Build (npm run build) braucht das private Homepage-Repo; hier genügen Typprüfung und Syntax.
+      - name: Typprüfung und Skript-Syntax
+        run: |
+          docker run --rm -v "$PWD":/app -w /app node:22-slim sh -c "npm ci --no-audit --no-fund && npx tsc -p tsconfig.json --noEmit && for f in scripts/*.mjs; do node --check \$f; done"

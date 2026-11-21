@@ -1,0 +1,153 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "timezone": "Europe/Berlin",
+  "schedule": [
+    "after 12am and before 6am"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
+  "dependencyDashboard": true,
+  "dependencyDashboardApproval": false,
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "schedule": [
+      "at any time"
+    ],
+    "labels": [
+      "security"
+    ],
+    "minimumReleaseAge": null
+  },
+  "automerge": true,
+  "automergeType": "pr",
+  "automergeStrategy": "squash",
+  "platformAutomerge": false,
+  "ignoreTests": false,
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchManagers": [
+        "composer"
+      ],
+      "groupName": "Composer (minor/patch)"
+    },
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchManagers": [
+        "npm"
+      ],
+      "groupName": "npm (minor/patch)"
+    },
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchManagers": [
+        "pip_requirements",
+        "pip_setup",
+        "pep621",
+        "pep723",
+        "poetry"
+      ],
+      "groupName": "Python (minor/patch)"
+    },
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest",
+        "pin",
+        "pinDigest"
+      ],
+      "matchManagers": [
+        "dockerfile",
+        "docker-compose"
+      ],
+      "groupName": "Docker-Images (minor/patch/digest)"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "php",
+        "dunglas/frankenphp",
+        "serversideup/php"
+      ],
+      "groupName": "PHP-Basisimage",
+      "pinDigests": true
+    },
+    {
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "labels": [
+        "dependencies",
+        "major"
+      ],
+      "minimumReleaseAge": "7 days"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "postgres",
+        "mysql",
+        "mariadb",
+        "redis",
+        "valkey",
+        "mongo",
+        "ghcr.io/immich-app/postgres",
+        "pgvector/pgvector",
+        "tensorchord/pgvecto-rs"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "labels": [
+        "dependencies",
+        "db-major"
+      ],
+      "automerge": false,
+      "description": "DB-Major: nur mit Backup + Probe-Upgrade an einer Kopie automatisch; bis die Probe existiert kein Automerge"
+    },
+    {
+      "matchPackageNames": [
+        "/^ghcr\\.io\\/mailu\\//"
+      ],
+      "labels": [
+        "dependencies",
+        "mailu"
+      ],
+      "automerge": false,
+      "description": "Mailu nur mit Migrationshinweisen und Wartungsfenster"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "pinDigests": true
+    }
+  ]
+}
