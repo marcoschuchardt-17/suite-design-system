@@ -9,6 +9,13 @@ können React-Komponenten nicht importieren und werden es nicht tun. Wer im
 School Organizer oder in der Lernen-App etwas baut, nimmt die
 `--suite-*`-Tokens und Blade — nicht dieses Paket.
 
+## Auf einen Blick
+
+Dreizehn Komponenten, alle mit Vorschau und kurzer Beschreibung:
+[docs/komponenten.md](docs/komponenten.md).
+
+![Alle dreizehn Komponenten in ihrer Vorschau](docs/komponenten.jpg)
+
 ## Quelle der Wahrheit ist die Homepage
 
 Das CSS wird **nicht** hier gepflegt. `scripts/sync-css.mjs` holt es bei jedem
