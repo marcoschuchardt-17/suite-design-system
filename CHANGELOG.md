@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/marcoschuchardt-17/suite-design-system/compare/v0.1.1...v0.1.2) (2026-11-25)
+
+
+### Bug Fixes
+
+* **browser-qa:** Farben über den Browser umrechnen, Alpha verrechnen ([#5](https://github.com/marcoschuchardt-17/suite-design-system/issues/5)) ([b1702a9](https://github.com/marcoschuchardt-17/suite-design-system/commit/b1702a99089d153b57e850b0091028dd20b310a4))
+
 ## [0.1.1](https://github.com/marcoschuchardt-17/suite-design-system/compare/v0.1.0...v0.1.1) (2026-11-21)
 
 
