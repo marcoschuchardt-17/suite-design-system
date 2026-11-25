@@ -25,6 +25,19 @@ Erstes Argument ist die Adresse, danach die Pfade. Ohne Pfade wird nur `/`
 geprüft. Der Befehl endet mit Fehlercode, sobald etwas gefunden wird — damit
 lässt er sich in einen Deploy-Schritt hängen.
 
+Angemeldete Seiten: `QA_STATE` zeigt auf einen Playwright-`storageState` einer lokalen
+Testanmeldung (z. B. nach einem Login-Skript mit `context.storageState({ path })`):
+
+```bash
+QA_STATE=state.json node skills/browser-qa/pruefen.mjs http://127.0.0.1:8000 / /einstellungen
+```
+
+Selbsttest nach jeder Änderung am Skript (Seite mit bekannten Kontrasten, siehe `selbsttest.html`):
+
+```bash
+node skills/browser-qa/selbsttest.mjs
+```
+
 Voraussetzung ist Playwright:
 
 ```bash
@@ -35,7 +48,7 @@ npm install playwright && npx playwright install chromium
 
 | Prüfung | Warum |
 |---|---|
-| **Kontrast** | Nach WCAG 2.x gerechnet, nicht geschätzt. 4,5:1 für Fließtext, 3:1 ab 24 px oder ab 18,66 px fett. Rechnet gegen die tatsächliche Hintergrundfarbe, nicht gegen die vermutete. |
+| **Kontrast** | Nach WCAG 2.x gerechnet, nicht geschätzt. 4,5:1 für Fließtext, 3:1 ab 24 px oder ab 18,66 px fett. Rechnet gegen die tatsächlich sichtbare Hintergrundfarbe: Jedes Farbformat (auch `oklch()` aus Tailwind 4) rechnet der Browser selbst nach sRGB um, halb durchsichtige Ebenen werden über die darunterliegenden verrechnet. |
 | **Waagerechter Überlauf** | Die Seite schiebt sich zur Seite. Klassiker bei 390 px: Tabellen, lange Adressen, feste Breiten in px. |
 | **Konsolenfehler** | Ein `Uncaught TypeError` bedeutet, dass ein Teil der Seite nicht funktioniert — oft unsichtbar. |
 | **4xx/5xx-Anfragen** | Fehlende Bilder, Schriften, Stylesheets. Ein 404 auf eine Schrift fällt optisch kaum auf und kostet trotzdem. |

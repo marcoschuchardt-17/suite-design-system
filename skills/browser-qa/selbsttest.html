@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>browser-qa Selbsttest</title>
+<style>body { margin: 0; font: 16px/1.5 system-ui, sans-serif; background: #fff; } .feld { padding: 8px; }</style></head>
+<body>
+<!-- Seite mit bekannten Werten fuer selbsttest.mjs. Jede Zeile nennt, was die Pruefung melden soll. -->
+<div role="main" class="feld">
+  <h1 style="color:#111">Selbsttest</h1>
+  <p style="color:#767676">A: #767676 auf Weiss, 4,54:1, kein Fund</p>
+  <p style="color:#777777">B: #777777 auf Weiss, 4,48:1, Fund</p>
+  <div style="background:#f8fafc"><p style="color:oklch(0.704 0.04 256.788)">C: oklch (#90a1b9) auf #f8fafc, etwa 2,5:1, Fund</p></div>
+  <div style="background:#0f172a"><p style="color:oklch(0.704 0.04 256.788)">D: dieselbe oklch-Farbe auf #0f172a, etwa 7:1, kein Fund</p></div>
+  <div style="background:oklab(0.279 -0.006 -0.036 / 0.05)"><p style="color:#1e293b">E: dunkel auf Hauch-Hintergrund mit 5 % Deckkraft, etwa 14:1, kein Fund</p></div>
+  <div style="background:rgba(0, 0, 0, 0.5)"><p style="color:#fff">F: weiss auf 50 % Schwarz ueber Weiss (#808080), 3,95:1, Fund</p></div>
+  <label>Name <input class="placeholder-zinc-400 placeholder:text-zinc-400" placeholder="kein Ladeplatzhalter"></label>
+  <div class="skeleton" style="height:12px;width:80px;background:#e5e7eb" aria-hidden="true"></div>
+</div>
+</body>
+</html>
